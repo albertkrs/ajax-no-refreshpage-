@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  
+    
+    <title>Document</title> 
+</head>
+<body>
+<div class="form-container">
+            <form action="" method="POST" >
+                <h3>Sign up</h3>
+                <input type="text" placeholder="username" name="username"  id="user" class="input"  autocomplete="off">
+                <input type="text" placeholder="Email" name="email"  id="email" class="input"        autocomplete="off">
+                <input type="password" placeholder="password" id="password" name="password" class="input"       autocomplete="off">
+                <button name="submit" id="btn">Sign up</button>
+                
+            </form>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+            $("#btn").click(() => {
+                var user =$("#user").val();
+                var email =$("#email").val();
+                var password=$("#password").val();
+                //ajax
+                $.ajax({
+                    type :'post',
+                    url:'send.php',
+                    data: {
+                        'username':user ,
+                        'email':email,
+                        'password':password
+                    },
+                    success:function(resp) {
+                        alert(resp);
+                    }
+                })
+            })
+        </script>
+</body>
+   
+    
+
+</html>
